@@ -3,13 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <title>Jammy Firmware Installer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f6f8fa;
+    }
+    h1 { color: #333; }
+    p { color: #555; }
+    progress {
+      width: 80%;
+      height: 20px;
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <body>
   <h1>Jammy Firmware Installer</h1>
-  <p>Click below to flash the latest version of Jammy to your ESP32.</p>
+  <p>Click below to flash the latest version of Jammy to your ESP32-C3 SuperMini.</p>
 
-  <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
+  <!-- Install Button -->
+  <esp-web-install-button id="installButton" manifest="manifest.json"></esp-web-install-button>
 
-  <script type="module" src="https://unpkg.com/esp-web-tools@latest/dist/web/install-button.js"></script>
+  <!-- Progress Bar -->
+  <div id="progressContainer" style="display:none;">
+    <p>Flashing progress:</p>
+    <progress id="progressBar" value="0" max="100"></progress>
+  </div>
+
+  <script type="module">
+    import { setLogger } from "https://unpkg.com/esp-web-tools@latest/dist/web/install-button.js";
+
+    const progressBar = document.getElementById("progressBar");
+    const progressContainer = document.getElementById("progressContainer");
+
+    // Optional: add a simple progress logger
+    setLogger((data) => {
+      if (data.type === "install-start") {
+        progressContainer.style.display = "block";
+        progressBar.value = 0;
+      } else if (data.type === "install-progress") {
+        progressBar.value = data.value;
+      } else if (data.type === "install-complete") {
+        progressBar.value = 100;
+      }
+    });
+  </script>
 </body>
 </html>
