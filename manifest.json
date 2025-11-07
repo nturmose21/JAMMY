@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "builds": [
     {
-      "chipFamily": "ESP32-C3",
+      "chipFamily": "ESP32",
       "parts": [
         { "path": "jammy_firmware.ino.bin", "offset": 0 }
       ]
