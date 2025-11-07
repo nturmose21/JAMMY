@@ -41,9 +41,12 @@
   </div>
 
 <script type="module">
-   import "https://unpkg.com/esp-web-tools@latest/dist/web/install-button.js";
+  import "https://unpkg.com/esp-web-tools@latest/dist/web/install-button.js";
+  
   const progressBar = document.getElementById("progressBar");
   const progressContainer = document.getElementById("progressContainer");
+  
+  const installButton = document.querySelector('esp-web-install-button');
 
   // Optional: basic event listener for progress
   document.querySelector('esp-web-install-button').addEventListener('install-start', () => {
