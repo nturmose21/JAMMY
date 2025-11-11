@@ -74,12 +74,6 @@
       border-color: rgba(76, 175, 80, 0.7);
       transform: translateY(-1px);
     }
-    
-    esp-web-install-button::part(button):active {
-      transform: scale(0.98);
-      background: rgba(76, 175, 80, 0.45);
-    }
-
 
     /* === Progress bar === */
     #progressContainer {
@@ -119,6 +113,7 @@
     <p>Click below to flash the latest version of Jammy to your ESP32-C3 SuperMini.</p>
 
     <!-- Install Buttons -->
+    <esp-web-install-button manifest="manifest.json"></esp-web-install-button>
     <esp-web-install-button
       manifest="manifest.json"
       no-auto-open
