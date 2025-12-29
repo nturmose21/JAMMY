@@ -5,7 +5,7 @@
     {
       "chipFamily": "ESP32-C3",
       "parts": [
-        { "path": "firmware.bin", "offset": 0 }
+        { "path": "firmware 2.bin", "offset": 0 }
       ]
     }
   ]
